@@ -1,4 +1,4 @@
-package com.indytskyi.userservice.service;
+package com.indytskyi.userservice.security.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
