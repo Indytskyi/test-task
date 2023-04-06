@@ -4,7 +4,7 @@ import com.indytskyi.userservice.dtos.AuthenticationRequestDto;
 import com.indytskyi.userservice.dtos.AuthenticationResponse;
 import com.indytskyi.userservice.dtos.RegisterRequestDto;
 import com.indytskyi.userservice.dtos.RegisterResponseDto;
-import com.indytskyi.userservice.models.Role;
+import com.indytskyi.userservice.models.enums.Role;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.repository.UserRepository;
 import com.indytskyi.userservice.security.jwt.JwtService;
