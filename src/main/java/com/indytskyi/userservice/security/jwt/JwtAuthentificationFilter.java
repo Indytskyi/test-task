@@ -51,14 +51,9 @@ public class JwtAuthentificationFilter extends OncePerRequestFilter {
                                 userDetails.getAuthorities());
                 authenticationToken.setDetails(new WebAuthenticationDetailsSource()
                         .buildDetails(request));
+                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
         }
-//        checkIfUserIsAuthentificatedAndRetturnUserDetails(userEmail);
+        filterChain.doFilter(request, response);
     }
-
-
-//    private UserDetails checkIfUserIsAuthentificatedAndRetturnUserDetails(String userEmail) {
-//
-//    }
-    // is Authentificated or
 }
