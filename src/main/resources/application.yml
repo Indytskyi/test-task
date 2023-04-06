@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/user-service
-    name: postgres
+    url: jdbc:postgresql://localhost:5432/test-task
     password: nickfury
+    username: postgres
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -16,5 +16,5 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
-SECRET_KEY: "ArtemSecret"
+SECRET_KEY: "566D597133743677397A24432646294A404E635266556A576E5A723475377821"
 
