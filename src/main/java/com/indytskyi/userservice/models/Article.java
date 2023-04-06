@@ -1,5 +1,6 @@
 package com.indytskyi.userservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.indytskyi.userservice.models.enums.Color;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -40,5 +41,6 @@ public class Article {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private User user;
 }

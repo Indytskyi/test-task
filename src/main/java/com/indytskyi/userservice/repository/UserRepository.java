@@ -9,22 +9,21 @@ import org.springframework.data.jpa.repository.Query;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
 
-    List<User> findAllByAgeGreaterThan(Integer age);
+//    List<User> findAllByAgeGreaterThan(Integer age);
 
-    @Query("""
-           SELECT DISTINCT User
-           FROM User
-           INNER JOIN Article ON User = Article .user
-           WHERE Article .color = :color
-                """)
-    List<User> findUsersByArticlesColor(String color);
+//    @Query("""
+//           SELECT DISTINCT User
+//           FROM User
+//           INNER JOIN Article ON User = Article .user
+//           WHERE Article .color = :color
+//                """)
+//    List<User> findUsersByArticlesColor(String color);
 
-    @Query(
-            """
-            SELECT DISTINCT User.name
-            FROM User JOIN User .articles
-            GROUP BY User .id
-            HAVING COUNT(Article ) > 3
-                    """)
-    List<String> findNamesOfUsersWithMoreThan3Articles();
+//    @Query(
+//            """
+//            SELECT DISTINCT User.name
+//            FROM User JOIN User .articles
+//            WHERE COUNT(Article ) > 3
+//                    """)
+//    List<String> findNamesOfUsersWithMoreThan3Articles();
 }

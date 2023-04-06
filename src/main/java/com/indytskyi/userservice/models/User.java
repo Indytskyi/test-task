@@ -52,6 +52,11 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     @Setter(AccessLevel.PRIVATE)
     private List<Article> articles = new ArrayList<>();
+
+    public void addArticle(Article article) {
+        article.setUser(this);
+        this.articles.add(article);
+    }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));

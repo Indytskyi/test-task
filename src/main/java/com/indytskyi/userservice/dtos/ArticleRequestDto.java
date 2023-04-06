@@ -17,6 +17,5 @@ public class ArticleRequestDto {
     private String text;
 
     @NotNull
-    @Enumerated(EnumType.STRING)
     private String color;
 }

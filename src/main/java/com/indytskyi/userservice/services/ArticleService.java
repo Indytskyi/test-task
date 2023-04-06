@@ -5,5 +5,5 @@ import com.indytskyi.userservice.models.Article;
 
 public interface ArticleService {
 
-    Article saveArticle(ArticleRequestDto articleRequestDto);
+    Article saveArticle(ArticleRequestDto articleRequestDto, String bearerToken);
 }
