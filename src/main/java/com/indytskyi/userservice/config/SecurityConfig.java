@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-    private static final String[] AUTH_WHITELIST = {
+    private static final String[] PERMITION_LIST = {
            "/users/register",
             "/users/login"
     };
@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()
-                .requestMatchers(AUTH_WHITELIST)
+                .requestMatchers(PERMITION_LIST)
                 .permitAll()
                 .anyRequest()
                 .authenticated()

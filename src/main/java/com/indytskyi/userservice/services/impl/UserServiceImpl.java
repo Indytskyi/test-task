@@ -1,5 +1,6 @@
 package com.indytskyi.userservice.services.impl;
 
+import com.indytskyi.userservice.exception.ObjectNotFoundException;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.models.enums.Color;
 import com.indytskyi.userservice.repository.UserRepository;
@@ -17,7 +18,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email)
-                .orElseThrow();
+                .orElseThrow(() -> new ObjectNotFoundException("User with email = " + email + "NOT FOUND"));
     }
 
     @Override
