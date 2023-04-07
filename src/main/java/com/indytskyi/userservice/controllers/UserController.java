@@ -1,6 +1,7 @@
 package com.indytskyi.userservice.controllers;
 
 import com.indytskyi.userservice.annotation.IsAdmin;
+import com.indytskyi.userservice.dtos.UserResponseDto;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.models.enums.Role;
 import com.indytskyi.userservice.services.UserService;
@@ -24,7 +25,7 @@ public class UserController {
 
     @GetMapping("/{age}")
     @IsAdmin
-    public ResponseEntity<List<User>> getUsersWithAgeGreaterThan(
+    public ResponseEntity<List<UserResponseDto>> getUsersWithAgeGreaterThan(
             @PathVariable Integer age,
             @RequestHeader("Authorization") String bearerToken) {
         return ResponseEntity.ok(userService.getAllUsersWithAgeGreaterThan(age));
@@ -39,7 +40,7 @@ public class UserController {
 
     @GetMapping
     @IsAdmin
-    public ResponseEntity<List<User>> findUsersByArticlesColor(
+    public ResponseEntity<List<UserResponseDto>> findUsersByArticlesColor(
             @RequestParam("color") String color,
             @RequestHeader("Authorization") String bearerToken) {
         return ResponseEntity.ok(userService.findUsersByArticlesColor(color));
