@@ -22,10 +22,11 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findUsersByArticlesColor(Color color);
 
     @Query("""
-            SELECT DISTINCT u.name
+            SELECT u.name
             FROM User u
-            LEFT JOIN Article a on u = a
-            WHERE COUNT(*)>3
+            LEFT JOIN Article a ON u = a.user
+            GROUP BY u.name
+            HAVING COUNT(a.user) > 3
             """)
     List<String> findNamesOfUsersWithMoreThan3Articles();
 }

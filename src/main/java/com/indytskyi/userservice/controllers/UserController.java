@@ -28,7 +28,7 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findNamesOfUsersWithMoreThan3Articles(@RequestParam("color") String color) {
+    public ResponseEntity<List<User>> findUsersByArticlesColor(@RequestParam("color") String color) {
         return ResponseEntity.ok(userService.findUsersByArticlesColor(color));
     }
 }
