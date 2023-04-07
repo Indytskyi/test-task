@@ -1,4 +1,4 @@
-package com.indytskyi.userservice.dtos;
+package com.indytskyi.userservice.dtos.response;
 
 public record AuthenticationResponse(String token) {
 }

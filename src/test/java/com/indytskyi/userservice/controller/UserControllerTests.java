@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.indytskyi.userservice.controllers.UserController;
-import com.indytskyi.userservice.dtos.UserResponseDto;
+import com.indytskyi.userservice.dtos.response.UserResponseDto;
 import com.indytskyi.userservice.services.UserService;
 import java.util.Arrays;
 import java.util.List;

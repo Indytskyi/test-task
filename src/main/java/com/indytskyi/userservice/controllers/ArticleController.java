@@ -2,9 +2,8 @@ package com.indytskyi.userservice.controllers;
 
 import static org.springframework.http.HttpStatus.CREATED;
 
-import com.indytskyi.userservice.dtos.ArticleRequestDto;
-import com.indytskyi.userservice.dtos.ArticleResponseDto;
-import com.indytskyi.userservice.models.Article;
+import com.indytskyi.userservice.dtos.request.ArticleRequestDto;
+import com.indytskyi.userservice.dtos.response.ArticleResponseDto;
 import com.indytskyi.userservice.services.ArticleService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

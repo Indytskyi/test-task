@@ -5,7 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.indytskyi.userservice.dtos.RegisterRequestDto;
+import com.indytskyi.userservice.dtos.request.RegisterRequestDto;
 import com.indytskyi.userservice.repository.UserRepository;
 import lombok.SneakyThrows;
 import org.junit.jupiter.api.Assertions;

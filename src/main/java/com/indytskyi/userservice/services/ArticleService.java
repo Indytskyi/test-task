@@ -1,8 +1,7 @@
 package com.indytskyi.userservice.services;
 
-import com.indytskyi.userservice.dtos.ArticleRequestDto;
-import com.indytskyi.userservice.dtos.ArticleResponseDto;
-import com.indytskyi.userservice.models.Article;
+import com.indytskyi.userservice.dtos.request.ArticleRequestDto;
+import com.indytskyi.userservice.dtos.response.ArticleResponseDto;
 
 public interface ArticleService {
 

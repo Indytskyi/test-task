@@ -1,6 +1,6 @@
 package com.indytskyi.userservice.services;
 
-import com.indytskyi.userservice.dtos.UserResponseDto;
+import com.indytskyi.userservice.dtos.response.UserResponseDto;
 import com.indytskyi.userservice.models.User;
 import java.util.List;
 

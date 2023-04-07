@@ -1,19 +1,13 @@
 package com.indytskyi.userservice.services.impl;
 
 
-import static org.springframework.test.util.AssertionErrors.assertEquals;
-
-import com.indytskyi.userservice.dtos.UserResponseDto;
+import com.indytskyi.userservice.dtos.response.UserResponseDto;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.repository.UserRepository;
-import com.indytskyi.userservice.services.UserService;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.Assert;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

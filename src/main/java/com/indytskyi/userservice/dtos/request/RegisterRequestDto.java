@@ -1,4 +1,4 @@
-package com.indytskyi.userservice.dtos;
+package com.indytskyi.userservice.dtos.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;

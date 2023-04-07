@@ -19,12 +19,8 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
     private static final String[] PERMITION_LIST = {
-           "/register",
-            "/login",
-            "/swagger-ui.html",
-            "/swagger-resources/**",
-            "/swagger-ui/**",
-            "//swagger-ui"
+            "/register",
+            "/login"
     };
 
     @Bean
