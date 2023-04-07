@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/article")
+@RequestMapping("users/articles")
 @RequiredArgsConstructor
 public class ArticleController {
 
