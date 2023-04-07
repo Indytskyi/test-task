@@ -3,6 +3,7 @@ package com.indytskyi.userservice.controllers;
 import static org.springframework.http.HttpStatus.CREATED;
 
 import com.indytskyi.userservice.dtos.ArticleRequestDto;
+import com.indytskyi.userservice.dtos.ArticleResponseDto;
 import com.indytskyi.userservice.models.Article;
 import com.indytskyi.userservice.services.ArticleService;
 import jakarta.validation.Valid;
@@ -22,7 +23,7 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @PostMapping
-    public ResponseEntity<Article> createArticle(
+    public ResponseEntity<ArticleResponseDto> createArticle(
             @RequestBody @Valid ArticleRequestDto articleRequestDto,
             @RequestHeader("Authorization") String bearerToken) {
 

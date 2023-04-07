@@ -1,7 +1,7 @@
 package com.indytskyi.userservice.dtos;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,8 +14,10 @@ import org.jetbrains.annotations.NotNull;
 @NoArgsConstructor
 public class ArticleRequestDto {
 
+    @NotEmpty
     private String text;
 
     @NotNull
+    @Pattern(regexp = " GREEN|RED|BLACK|BLUE", message = "Incorrect color")
     private String color;
 }

@@ -1,4 +1,7 @@
 package com.indytskyi.userservice.dtos;
 
-public record AuthenticationRequestDto(String email, String password) {
+import jakarta.validation.constraints.Email;
+
+public record AuthenticationRequestDto(
+        String email, String password) {
 }
