@@ -14,4 +14,6 @@ public interface UserService {
     List<String> findNamesOfUsersWithMoreThan3Articles();
 
     List<UserResponseDto> findUsersByArticlesColor(String color);
+
+    void checkIfUserWithNewEmailExist(String email);
 }

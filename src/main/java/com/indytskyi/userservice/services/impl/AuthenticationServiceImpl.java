@@ -44,6 +44,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     @Transactional
     public RegisterResponseDto register(RegisterRequestDto request) {
+        userService.checkIfUserWithNewEmailExist(request.getEmail());
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())

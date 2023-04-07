@@ -5,6 +5,7 @@ import static com.indytskyi.userservice.models.enums.Role.ADMIN;
 import com.indytskyi.userservice.dtos.UserResponseDto;
 import com.indytskyi.userservice.exception.LimitedPermissionException;
 import com.indytskyi.userservice.exception.ObjectNotFoundException;
+import com.indytskyi.userservice.exception.UserDuplicateEmailException;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.models.enums.Color;
 import com.indytskyi.userservice.models.enums.Role;
@@ -51,6 +52,13 @@ public class UserServiceImpl implements UserService {
                 .map(this::mappedUsertoDto)
                 .toList();
 
+    }
+
+    @Override
+    public void checkIfUserWithNewEmailExist(String email) {
+        if (userRepository.findByEmail(email).isPresent()) {
+            throw new UserDuplicateEmailException("A user with such email is already present");
+        }
     }
 
     private UserResponseDto mappedUsertoDto(User user) {

@@ -4,6 +4,7 @@ import com.indytskyi.userservice.exception.ApiExceptionObject;
 import com.indytskyi.userservice.exception.ErrorResponse;
 import com.indytskyi.userservice.exception.LimitedPermissionException;
 import com.indytskyi.userservice.exception.ObjectNotFoundException;
+import com.indytskyi.userservice.exception.UserDuplicateEmailException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -53,6 +54,15 @@ public class ApiExceptionHandler {
         return new ResponseEntity<>(getApiExceptionObject(e.getMessage(), status), status);
     }
 
+    @ExceptionHandler(value = {
+            UserDuplicateEmailException.class
+    })
+    public ResponseEntity<ApiExceptionObject> BadRequestExceptions(
+            RuntimeException e
+    ) {
+        HttpStatus status = HttpStatus.BAD_REQUEST;
+        return new ResponseEntity<>(getApiExceptionObject(e.getMessage(), status), status);
+    }
 
     private ApiExceptionObject getApiExceptionObject(String message, HttpStatus status) {
         return new ApiExceptionObject(
