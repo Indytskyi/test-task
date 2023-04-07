@@ -1,8 +1,12 @@
 package com.indytskyi.userservice.services.impl;
 
+import static com.indytskyi.userservice.models.enums.Role.ADMIN;
+
+import com.indytskyi.userservice.exception.LimitedPermissionException;
 import com.indytskyi.userservice.exception.ObjectNotFoundException;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.models.enums.Color;
+import com.indytskyi.userservice.models.enums.Role;
 import com.indytskyi.userservice.repository.UserRepository;
 import com.indytskyi.userservice.services.UserService;
 import java.util.List;
@@ -40,6 +44,5 @@ public class UserServiceImpl implements UserService {
     public List<User> findUsersByArticlesColor(String color) {
         return userRepository.findUsersByArticlesColor(Color.valueOf(color));
     }
-
 
 }

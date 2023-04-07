@@ -2,6 +2,7 @@ package com.indytskyi.userservice.exception.handler;
 
 import com.indytskyi.userservice.exception.ApiExceptionObject;
 import com.indytskyi.userservice.exception.ErrorResponse;
+import com.indytskyi.userservice.exception.LimitedPermissionException;
 import com.indytskyi.userservice.exception.ObjectNotFoundException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -39,6 +40,16 @@ public class ApiExceptionHandler {
     })
     public ResponseEntity<ApiExceptionObject> handleUserNorFoundException(RuntimeException e) {
         HttpStatus status = HttpStatus.NOT_FOUND;
+        return new ResponseEntity<>(getApiExceptionObject(e.getMessage(), status), status);
+    }
+
+    @ExceptionHandler(value = {
+            LimitedPermissionException.class
+    })
+    public ResponseEntity<ApiExceptionObject> handleTokenAccessException(
+            RuntimeException e
+    ) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
         return new ResponseEntity<>(getApiExceptionObject(e.getMessage(), status), status);
     }
 
