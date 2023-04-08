@@ -29,6 +29,7 @@ All properties for all required images are in docker-compose.yml file. So, to ru
 ```
 docker-compose up
 ````
+Also all the images are on dockerhub
 
 Relax and test :sunglasses:
 ---
