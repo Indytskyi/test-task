@@ -12,7 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findUserByAgeGreaterThan(Integer age);
 
-
     @Query("""
            SELECT DISTINCT u
            FROM User u

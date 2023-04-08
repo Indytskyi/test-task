@@ -59,6 +59,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .age(request.getAge())
                 .role(Role.USER)
                 .build();
+
         userService.saveUser(user);
         var jwtToken = jwtService.generateToken(Map.of("ROLE", user.getRole()), user);
         return new RegisterResponseDto(jwtToken);
@@ -71,8 +72,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         var token = jwtService.resolveToken(bearerToken);
         jwtService.validateToken(token);
         var email = jwtService.getUserName(token);
-        var user = userService.findUserByEmail(email);
 
-        return user;
+        return userService.findUserByEmail(email);
     }
 }

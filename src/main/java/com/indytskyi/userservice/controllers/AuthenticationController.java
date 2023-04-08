@@ -2,8 +2,8 @@ package com.indytskyi.userservice.controllers;
 
 
 import com.indytskyi.userservice.dtos.request.AuthenticationRequestDto;
-import com.indytskyi.userservice.dtos.response.AuthenticationResponse;
 import com.indytskyi.userservice.dtos.request.RegisterRequestDto;
+import com.indytskyi.userservice.dtos.response.AuthenticationResponse;
 import com.indytskyi.userservice.dtos.response.RegisterResponseDto;
 import com.indytskyi.userservice.services.AuthenticationService;
 import jakarta.validation.Valid;

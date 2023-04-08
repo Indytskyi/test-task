@@ -19,7 +19,6 @@ public class ArticleServiceImpl implements ArticleService {
     private final ArticleRepository articleRepository;
     private final AuthenticationService authenticationService;
 
-
     @Override
     @Transactional
     public ArticleResponseDto saveArticle(ArticleRequestDto articleRequestDto, String bearerToken) {

@@ -61,8 +61,7 @@ public class UserControllerTests {
         // THEN
         String responseContent = mvcResult.getResponse().getContentAsString();
         List<UserResponseDto> responseDtoList = new ObjectMapper().readValue(
-                responseContent,
-                new TypeReference<List<UserResponseDto>>(){});
+                responseContent, new TypeReference<List<UserResponseDto>>(){});
 
         assertEquals(users.size(), responseDtoList.size());
         assertEquals(users.get(0).name(), responseDtoList.get(0).name());

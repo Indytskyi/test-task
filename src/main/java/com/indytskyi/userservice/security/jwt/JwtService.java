@@ -90,7 +90,7 @@ public class JwtService {
     public void validateToken(String token) {
         try {
             Jwts.parserBuilder()
-                    .setSigningKey  (secretKey)
+                    .setSigningKey(secretKey)
                     .build()
                     .parseClaimsJws(token);
         } catch (IllegalArgumentException | JwtException e) {
