@@ -5,11 +5,11 @@ services:
     image: postgres
     container_name: postgres-user
     ports:
-        - "5433:5432"
+      - "5433:5432"
     environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=1111
-        - POSTGRES_DB=test_task
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1111
+      - POSTGRES_DB=test_task
 
   user-service:
     build: ./
@@ -20,6 +20,14 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres-user:5432/test_task
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=1111
+      - SPRING_FLYWAY_ENABLED=true
+      - SPRING_FLYWAY_URL=jdbc:postgresql://postgres-user:5432/test_task
+      - SPRING_FLYWAY_USER=postgres
+      - SPRING_FLYWAY_PASSWORD=1111
+      - SPRING_FLYWAY_GROUP=true
+      - MANAGEMENT_TRACING_SAMPLING_PROBABILITY=1.0
+      - MANAGEMENT_ZIPKIN_TRACING_ENDPOINT=http://zipkin:9411/api/v2/spans
+
     depends_on:
       - postgres-user
   zipkin:

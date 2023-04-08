@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "0c3a24ea-21e4-4c38-b835-140eeee97234",
+		"name": "user-service-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22360272"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"ind.artem2003@gmail.com\",\n    \"password\": \"Artem2003@\",\n    \"name\": \"Artem\",\n    \"age\" : 19\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"ind.artem2003@gmail.com\",\n    \"password\" : \"Artem2003@\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add Article to User",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get all Users with age greater than some value",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get unique names from Users with more than 3 Articles",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiVVNFUiIsInN1YiI6ImluZC5hcnRlbTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNjgwODcwNDM4LCJleHAiOjE2ODA4NzE4Nzh9.-jrhPLqdA_J3pdrocTaH6AZqqPy4MDMObMlovz91Ifk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/users/big-publishers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"users",
+						"big-publishers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Users from Articles in which color is some specific value from the enum",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiVVNFUiIsInN1YiI6ImluZC5hcnRlbTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNjgwODcwNDM4LCJleHAiOjE2ODA4NzE4Nzh9.-jrhPLqdA_J3pdrocTaH6AZqqPy4MDMObMlovz91Ifk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/users?color=BLUE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "color",
+							"value": "BLUE"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
