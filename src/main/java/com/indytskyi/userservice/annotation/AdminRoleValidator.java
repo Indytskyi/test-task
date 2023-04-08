@@ -1,9 +1,9 @@
 package com.indytskyi.userservice.annotation;
 
-import static com.indytskyi.userservice.models.enums.Role.ADMIN;
+import static com.indytskyi.userservice.model.enums.Role.ADMIN;
 
 import com.indytskyi.userservice.exception.LimitedPermissionException;
-import com.indytskyi.userservice.services.AuthenticationService;
+import com.indytskyi.userservice.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;

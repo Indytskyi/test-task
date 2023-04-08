@@ -8,9 +8,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.indytskyi.userservice.dtos.request.AuthenticationRequestDto;
-import com.indytskyi.userservice.dtos.request.RegisterRequestDto;
-import com.indytskyi.userservice.dtos.response.AuthenticationResponse;
+import com.indytskyi.userservice.dto.request.AuthenticationRequestDto;
+import com.indytskyi.userservice.dto.request.RegisterRequestDto;
+import com.indytskyi.userservice.dto.response.AuthenticationResponse;
 import com.indytskyi.userservice.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.SneakyThrows;

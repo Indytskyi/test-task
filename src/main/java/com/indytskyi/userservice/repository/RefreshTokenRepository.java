@@ -1,7 +1,7 @@
 package com.indytskyi.userservice.repository;
 
-import com.indytskyi.userservice.models.RefreshToken;
-import com.indytskyi.userservice.models.User;
+import com.indytskyi.userservice.model.RefreshToken;
+import com.indytskyi.userservice.model.User;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
