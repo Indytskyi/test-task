@@ -62,14 +62,6 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public void checkIfUserWithNewEmailExist(String email) {
-        if (userRepository.findByEmail(email).isPresent()) {
-            log.error("User with email = {} already exists", email);
-            throw new UserDuplicateEmailException("A user with such email is already present");
-        }
-    }
-
     private UserResponseDto mappedUsertoDto(User user) {
         return UserResponseDto.builder()
                 .id(user.getId())

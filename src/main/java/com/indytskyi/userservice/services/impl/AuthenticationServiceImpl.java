@@ -51,7 +51,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         log.info("Registering user with email = {} and name = {}",
                 request.getEmail(), request.getName());
 
-        userService.checkIfUserWithNewEmailExist(request.getEmail());
         var user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
