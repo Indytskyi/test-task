@@ -20,7 +20,6 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     @Value("${jwt.refresh.token.expiredTime.min}")
     private long expirationPeriod;
 
-
     @Override
     @Transactional
     public RefreshToken create(User user) {
@@ -43,20 +42,20 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     }
 
     @Override
-    public RefreshToken findByToken(String token) {
-        return refreshTokenRepository.findByToken(token)
-                .orElseThrow(() -> new ObjectNotFoundException(
-                        "Refresh token: " + token + " wasn't found in a DB."));
-    }
-
-
-    @Override
+    @Transactional(readOnly = true)
     public RefreshToken resolveRefreshToken(String token) {
         RefreshToken refreshToken = findByToken(token);
         if (refreshToken.getExpiredAt().isBefore(LocalDateTime.now())) {
             throw new ObjectNotFoundException("Refresh token was expired. Please, make a new login.");
         }
         return refreshToken;
+    }
+
+    @Override
+    public RefreshToken findByToken(String token) {
+        return refreshTokenRepository.findByToken(token)
+                .orElseThrow(() -> new ObjectNotFoundException(
+                        "Refresh token: " + token + " wasn't found in a DB."));
     }
 
     @Override

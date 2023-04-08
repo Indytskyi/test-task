@@ -22,7 +22,6 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     @Transactional
     public ArticleResponseDto saveArticle(ArticleRequestDto articleRequestDto, String bearerToken) {
-        log.info("token validation for correctness");
         var user = authenticationService.validateToken(bearerToken);
 
         log.info("save article to User with name = {}", user.getName());

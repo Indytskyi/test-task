@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\" : \"ind.artem2003@gmail.com\",\n    \"password\": \"Artem2003@\",\n    \"name\": \"Artem\",\n    \"age\" : 19\n}",
+					"raw": "{\n    \"email\" : \"ind.artem2008@gmail.com\",\n    \"password\": \"Artem2003@\",\n    \"name\": \"Koly78a\",\n    \"age\" :56\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -51,7 +51,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"email\" : \"ind.artem2003@gmail.com\",\n    \"password\" : \"Artem2003@\"\n}",
+					"raw": "{\n    \"email\" : \"superadmin@gmail.com\",\n    \"password\" : \"Artem2003@\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -59,14 +59,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8084/users/login",
+					"raw": "http://localhost:8084/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8084",
 					"path": [
-						"users",
 						"login"
 					]
 				}
@@ -76,16 +75,68 @@
 		{
 			"name": "add Article to User",
 			"request": {
-				"method": "GET",
-				"header": []
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiVVNFUiIsInN1YiI6ImluZC5hcnRlbTIwMDdAZ21haWwuY29tIiwiaWF0IjoxNjgwOTY2MTU5LCJleHAiOjE2ODA5Njc1OTl9.NZ06LS9zAimyS36jMGYIGLqVBN79mrdzTBmUXAuR4qI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"text\" : \"DOG AND CAT\",\n    \"color\" : \"BLACK\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8084/articles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"articles"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "get all Users with age greater than some value",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiQURNSU4iLCJzdWIiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MDk2NjE4OCwiZXhwIjoxNjgwOTY3NjI4fQ.8HE2w-NfscAMEhuxoxKIO88Ahx_X5tlYEfyzyY2M2NU",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8084/users/23",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8084",
+					"path": [
+						"users",
+						"23"
+					]
+				}
 			},
 			"response": []
 		},
@@ -97,7 +148,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiVVNFUiIsInN1YiI6ImluZC5hcnRlbTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNjgwODcwNDM4LCJleHAiOjE2ODA4NzE4Nzh9.-jrhPLqdA_J3pdrocTaH6AZqqPy4MDMObMlovz91Ifk",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiQURNSU4iLCJzdWIiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MDk2NjE4OCwiZXhwIjoxNjgwOTY3NjI4fQ.8HE2w-NfscAMEhuxoxKIO88Ahx_X5tlYEfyzyY2M2NU",
 							"type": "string"
 						}
 					]
@@ -127,7 +178,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiVVNFUiIsInN1YiI6ImluZC5hcnRlbTIwMDNAZ21haWwuY29tIiwiaWF0IjoxNjgwODcwNDM4LCJleHAiOjE2ODA4NzE4Nzh9.-jrhPLqdA_J3pdrocTaH6AZqqPy4MDMObMlovz91Ifk",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJST0xFIjoiQURNSU4iLCJzdWIiOiJzdXBlcmFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MDk2NjE4OCwiZXhwIjoxNjgwOTY3NjI4fQ.8HE2w-NfscAMEhuxoxKIO88Ahx_X5tlYEfyzyY2M2NU",
 							"type": "string"
 						}
 					]
@@ -164,7 +215,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"token\" : \"4b87fc00-06d6-4a56-846f-34559c1539cb\"\n}",
+					"raw": "{\n    \"token\" : \"27f19411-4eab-488f-b0be-306cef6139b0\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

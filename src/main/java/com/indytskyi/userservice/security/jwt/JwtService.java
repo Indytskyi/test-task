@@ -86,8 +86,7 @@ public class JwtService {
                 : null;
     }
 
-
-    public void validateToken(String token) {
+    public void isTokenValid(String token) {
         try {
             Jwts.parserBuilder()
                     .setSigningKey(secretKey)
@@ -96,7 +95,6 @@ public class JwtService {
         } catch (IllegalArgumentException | JwtException e) {
             throw new AuthTokenException("Jwt auth token not valid!");
         }
-
     }
 }
 

@@ -23,7 +23,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
@@ -32,6 +31,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     @Override
+    @Transactional
     public AuthenticationResponse authenticate(AuthenticationRequestDto request) {
         log.info("Straring Authenticate user with email = {}", request.email());
 
@@ -69,19 +69,20 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public AuthenticationResponse refreshToken(RefreshTokenRequestDto refreshTokenRequestDto) {
+        log.info("Refreshing a token with token = {}", refreshTokenRequestDto.token());
         var refreshToken = refreshTokenService.resolveRefreshToken(refreshTokenRequestDto.token());
         var user = refreshToken.getUser();
+
         var jwtToken = jwtService.generateToken(Map.of("ROLE", user.getRole()), user);
         return new AuthenticationResponse(jwtToken, refreshToken.getToken());
     }
 
     @Override
     public User validateToken(String bearerToken) {
-        log.info("Check if token is valid");
-
         var token = jwtService.resolveToken(bearerToken);
-        jwtService.validateToken(token);
+        jwtService.isTokenValid(token);
         var email = jwtService.getUserName(token);
 
         return userService.findUserByEmail(email);

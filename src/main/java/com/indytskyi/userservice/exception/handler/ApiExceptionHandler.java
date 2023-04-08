@@ -1,6 +1,7 @@
 package com.indytskyi.userservice.exception.handler;
 
 import com.indytskyi.userservice.exception.ApiExceptionObject;
+import com.indytskyi.userservice.exception.AuthTokenException;
 import com.indytskyi.userservice.exception.ErrorResponse;
 import com.indytskyi.userservice.exception.LimitedPermissionException;
 import com.indytskyi.userservice.exception.ObjectNotFoundException;
@@ -44,7 +45,8 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(value = {
             LimitedPermissionException.class,
-            BadCredentialsException.class
+            BadCredentialsException.class,
+            AuthTokenException.class
     })
     public ResponseEntity<ApiExceptionObject> handleTokenAccessException(
             RuntimeException e
