@@ -1,6 +1,7 @@
 package com.indytskyi.userservice.models;
 
 import com.indytskyi.userservice.models.enums.Role;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -9,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -53,6 +55,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user")
     @Setter(AccessLevel.PRIVATE)
     private List<Article> articles = new ArrayList<>();
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private RefreshToken refreshToken;
 
     public void addArticle(Article article) {
         article.setUser(this);
