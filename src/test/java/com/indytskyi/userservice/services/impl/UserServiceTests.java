@@ -1,12 +1,13 @@
 package com.indytskyi.userservice.services.impl;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.indytskyi.userservice.dtos.response.UserResponseDto;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.repository.UserRepository;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -56,9 +57,8 @@ public class UserServiceTests {
         Mockito.when(userRepository.findUserByAgeGreaterThan(age)).thenReturn(users);
         List<UserResponseDto> actual = userService.getAllUsersWithAgeGreaterThan(age);
 
-        Assert.assertEquals(userResponseDtos.size(), actual.size());
-        Assert.assertEquals(userResponseDtos.get(0).name(), actual.get(0).name());
-        Assert.assertEquals(userResponseDtos.get(1).name(), actual.get(1).name());
-
+        assertEquals(userResponseDtos.size(), actual.size());
+        assertEquals(userResponseDtos.get(0).name(), actual.get(0).name());
+        assertEquals(userResponseDtos.get(1).name(), actual.get(1).name());
     }
 }
