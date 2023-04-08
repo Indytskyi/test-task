@@ -26,3 +26,11 @@ management:
   tracing:
     sampling:
       probability: 1.0
+
+jwt:
+  token:
+    expiredTime: 3600000
+  refresh:
+    token:
+      expiredTime:
+        min: 720

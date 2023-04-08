@@ -1,6 +1,7 @@
 package com.indytskyi.userservice.services.impl;
 
 import com.indytskyi.userservice.dtos.request.AuthenticationRequestDto;
+import com.indytskyi.userservice.dtos.request.RefreshTokenRequestDto;
 import com.indytskyi.userservice.dtos.response.AuthenticationResponse;
 import com.indytskyi.userservice.dtos.request.RegisterRequestDto;
 import com.indytskyi.userservice.dtos.response.RegisterResponseDto;
@@ -8,6 +9,7 @@ import com.indytskyi.userservice.models.enums.Role;
 import com.indytskyi.userservice.models.User;
 import com.indytskyi.userservice.security.jwt.JwtService;
 import com.indytskyi.userservice.services.AuthenticationService;
+import com.indytskyi.userservice.services.RefreshTokenService;
 import com.indytskyi.userservice.services.UserService;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +28,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
     private final JwtService jwtService;
-
+    private final RefreshTokenService refreshTokenService;
     private final AuthenticationManager authenticationManager;
 
     @Override
@@ -41,8 +43,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         );
         var user = userService.findUserByEmail(request.email());
         var jwtToken = jwtService.generateToken(Map.of("ROLE", user.getRole()), user);
+        refreshTokenService.deleteOldRefreshTokens(user);
+        var refreshToken = refreshTokenService.create(user);
 
-        return new AuthenticationResponse(jwtToken);
+        return new AuthenticationResponse(jwtToken, refreshToken.getToken());
     }
 
     @Override
@@ -62,6 +66,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         userService.saveUser(user);
         var jwtToken = jwtService.generateToken(Map.of("ROLE", user.getRole()), user);
         return new RegisterResponseDto(jwtToken);
+    }
+
+    @Override
+    public AuthenticationResponse refreshToken(RefreshTokenRequestDto refreshTokenRequestDto) {
+        var refreshToken = refreshTokenService.resolveRefreshToken(refreshTokenRequestDto.token());
+        var user = refreshToken.getUser();
+        var jwtToken = jwtService.generateToken(Map.of("ROLE", user.getRole()), user);
+        return new AuthenticationResponse(jwtToken, refreshToken.getToken());
     }
 
     @Override
