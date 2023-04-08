@@ -1,0 +1,18 @@
+INSERT INTO articles (color, text, user_id)
+VALUES ( 'RED', 'HELLO', 2),
+       ( 'GREEN', 'JAVA', 2),
+       ( 'BLUE', 'KOTLIN', 2),
+       ( 'RED', 'SKALA', 2),
+       ( 'BLACK', 'I`m a monster', 3),
+       ( 'GREEN', 'HELLO', 4),
+       ( 'RED', 'BANANA', 4),
+       ( 'RED', 'HELLO', 5),
+       ( 'RED', 'HI', 5),
+       ( 'BLACK', 'THANKS', 5),
+       ( 'BLUE', 'APPLE', 5),
+       ( 'RED', 'CAKE', 5),
+       ( 'BLUE', 'PINEAPPLE', 6),
+       ( 'BLUE', 'CUCUMBER', 6),
+       ( 'RED', 'TOMATO', 6),
+       ( 'BLACK', 'CAR', 6),
+       ( 'BLUE', 'pink floyd', 7);

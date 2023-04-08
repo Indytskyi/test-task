@@ -18,18 +18,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
-    private static final String[] AUTH_WHITELIST = {
-           "/users/register",
-            "/users/login"
+    private static final String[] PERMITION_LIST = {
+            "/register",
+            "/login"
     };
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf()
-                .disable()
+                .csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers(AUTH_WHITELIST)
+                .requestMatchers(PERMITION_LIST)
                 .permitAll()
                 .anyRequest()
                 .authenticated()
