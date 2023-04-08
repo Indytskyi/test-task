@@ -20,7 +20,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(toBuilder = true, builderMethodName = "of")
+@Builder
 @Table(name = "refresh_tokens")
 public class RefreshToken {
     @Id
@@ -31,6 +31,6 @@ public class RefreshToken {
     private User user;
     @Column(nullable = false, unique = true)
     private String token;
-    @Column( nullable = false)
+    @Column(name = "expired_at", nullable = false)
     private LocalDateTime expiredAt;
 }

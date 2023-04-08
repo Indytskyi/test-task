@@ -20,7 +20,8 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
     private static final String[] PERMITION_LIST = {
             "/register",
-            "/login"
+            "/login",
+            "/refresh-token"
     };
 
     @Bean

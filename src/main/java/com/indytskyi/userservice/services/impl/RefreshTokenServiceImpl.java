@@ -24,24 +24,29 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     @Override
     @Transactional
     public RefreshToken create(User user) {
-        var refreshToken = new RefreshToken();
-        refreshToken.setUser(user);
-        String token = UUID.randomUUID().toString();
-        while (refreshTokenRepository.findByToken(token).isPresent()) {
-            token = UUID.randomUUID().toString();
-        }
-        refreshToken.setToken(token);
-        refreshToken.setExpiredAt(LocalDateTime.now()
-                .plusMinutes(expirationPeriod));
+        var refreshToken = RefreshToken.builder()
+                .user(user)
+                .token(generateRefreshToken())
+                .expiredAt(LocalDateTime.now()
+                        .plusMinutes(expirationPeriod))
+                .build();
+
         return refreshTokenRepository.save(refreshToken);
+    }
+
+    private String generateRefreshToken() {
+        String token;
+        do {
+            token = UUID.randomUUID().toString();
+        } while (refreshTokenRepository.findByToken(token).isPresent());
+        return token;
     }
 
     @Override
     public RefreshToken findByToken(String token) {
         return refreshTokenRepository.findByToken(token)
                 .orElseThrow(() -> new ObjectNotFoundException(
-                        "Refresh token: " + token + " wasn't found in a DB."
-                ));
+                        "Refresh token: " + token + " wasn't found in a DB."));
     }
 
 
@@ -56,7 +61,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
 
     @Override
     public void deleteOldRefreshTokens(User user) {
-        var refreshToken = refreshTokenRepository.findByUser(user);
-        refreshToken.ifPresent(token -> refreshTokenRepository.deleteById(token.getId()));
+        refreshTokenRepository.findByUser(user)
+                .ifPresent(token -> refreshTokenRepository.deleteById(token.getId()));
     }
 }
