@@ -45,7 +45,9 @@ The user of this project can perform next actions:
 - [Zipkin](http://localhost:9411/zipkin)
 
 ### IMPOTRANT :fire: :fire:
-
+ - Only the administrator has access to all endpoints except (`register`, `login`, `add article to user`).
+ - Admin сredentials. email : `superadmin@gmail.com` and password: `Artem2003@`
+ - All users have a password - `Artem2003@`
 ---
 ### THANKS :heart:
 ---
