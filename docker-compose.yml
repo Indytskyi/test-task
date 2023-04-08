@@ -22,3 +22,8 @@ services:
       - SPRING_DATASOURCE_PASSWORD=1111
     depends_on:
       - postgres-user
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"

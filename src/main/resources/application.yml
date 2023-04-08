@@ -2,6 +2,7 @@ server:
   port: 8084
 
 spring:
+
   datasource:
     url: jdbc:postgresql://localhost:5432/test-task
     password: nickfury
@@ -20,3 +21,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 SECRET_KEY: "566D597133743677397A24432646294A404E635266556A576E5A723475377821"
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
