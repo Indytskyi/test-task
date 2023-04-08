@@ -6,10 +6,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/test-task
     password: nickfury
     username: postgres
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/test-task
+    user: postgres
+    password: nickfury
+    group: true
   jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
     properties:
       hibernate:
         format_sql: true
@@ -17,4 +20,3 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 SECRET_KEY: "566D597133743677397A24432646294A404E635266556A576E5A723475377821"
-

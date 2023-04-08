@@ -47,6 +47,7 @@ public class User implements UserDetails {
     private Integer age;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
     @OneToMany(mappedBy = "user")
